@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruise Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--Header and Menu Section-->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a class="active" href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Booking Section-->
+    <main id="main-area" class="main-content container">
+
+        <div class="booking-content">
+            <h1>Cruise Queen</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        </div>
+
+
+        <div class="booking-form">
+            <h3>Book Ocean Time</h3>
+            <div class="input-group">
+                    <label for="">From</label>
+                    <input id="leave-from" class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh" required>
+            </div>
+            <div class="input-group">
+                    <label for="">To</label>
+                    <input id="dest-to" class="inp-style" type="text" name="" placeholder="New York, United States" required>
+            </div>
+            <div class="inputs">
+                <div class="input-group">
+                    <label for="">Departure</label>
+                    <input id="departure-date" class="inp-style" type="date" name="" required>
+                </div>
+                <div class="input-group">
+                    <label for="">Return</label>
+                    <input id="return-date" class="inp-style" type="date" name="" required>
+                </div>
+            </div>
+            <div class="input-group f-class">
+                <div>
+                    <label for="">First Class ($150)</label>
+                    <input id="firstclass-count" class="inp-style inp-width" type="text" value="0" name="">
+                </div>
+                <div class="plus-minus-btn">
+                    <p> <span onclick="ticketQty('firstclass', true)" class="plus button-design bg-dark">+</span> <span onclick="ticketQty('firstclass', false)" class="minus button-design bg-dark">-</span> </p>
+                </div>
+            </div>
+            
+            <div class="input-group f-class">
+                <div>
+                    <label for="">Economy ($100)</label>
+                    <input id="economyclass-count" class="inp-style inp-width" type="text" value="0" name="">
+                </div>
+                <div class="plus-minus-btn">
+                    <p> <span onclick="ticketQty('economyclass', true)" class="plus button-design bg-dark">+</span> <span onclick="ticketQty('economyclass', false)" class="minus button-design bg-dark">-</span> </p>
+                </div>
+            </div>
+            <div class="calculations">
+                <div class="amount">
+                    <div class="left">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="right">
+                        <p id="sub-total">$0</p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <div class="left">
+                        <p>Charge 10% VAT</p>
+                    </div>
+                    <div class="right">
+                        <p id="vat-charge">$0</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="amount">
+                    <div class="left">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="right">
+                        <p id="grand-total">$0</p>
+                    </div>
+                </div>
+            </div>
+            <button onclick="bookingReport()" class="btn-style">Book Now</button>
+        </div>
+    </main>
+    <section id="invoice-area" class="invoice-section">
+        <h2 class="invoice-title">Invoice</h2>
+        <div class="invoice-details">
+            <div">
+                <h6>Leave From: <span id="invoice-leaveFrom"></span></h6>
+                <h6>Destination: <span id="invoice-destination"></span></h6>
+                <h6>Departure: <span id="invoice-departure"></span></h6>
+                <h6>Return: <span id="invoice-return"></span></h6>
+            </div>
+        </div>
+        <div class="invoice-table">
+            <table class="table table-bordered ">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th scope="col">Ticket</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>#</th>
+                    <td>First Class</td>
+                    <td id="first-quantity"></td>
+                    <td id="first-total"></td>
+                  </tr>
+                  <tr>
+                    <th>#</th>
+                    <td>Economy Class</td>
+                    <td id="economy-quantity"></td>
+                    <td id="economy-total"></td>
+                  </tr>
+                  
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td><strong>Sub-Total</strong></td>
+                    <td id="invoice-subtotal"></td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                    <td></td>
+                    <td><strong>VAT</strong></td>
+                    <td id="invoice-vat"></td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                    <td></td>
+                    <td><strong>Total</strong></td>
+                    <td id="invoice-total"></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        
+    </section>
+
+    <script>
+        function ticketQty(fareClass, isIncrease) {
+            const qtyInput = document.getElementById(fareClass + '-count');
+            const qtyCount = parseInt(qtyInput.value);
+            let qtyNewCount = qtyCount;
+            if(isIncrease == true){
+                qtyNewCount = qtyCount + 1;
+            }
+            if(isIncrease == false && qtyCount > 0){
+                qtyNewCount = qtyCount - 1;
+            }
+            qtyInput.value = qtyNewCount;
+            document.getElementById('first-quantity').innerText = qtyNewCount;
+            document.getElementById('economy-quantity').innerText = qtyNewCount;
+            calculateTotal();
+        }
+
+        // Calculate 
+        function calculateTotal() {
+            const firstclassInput = document.getElementById('firstclass-count');
+            const firstclassCount = parseInt(firstclassInput.value);
+            document.getElementById('first-quantity').innerText = firstclassCount;
+
+            const economyclassInput = document.getElementById('economyclass-count');
+            const economyclassCount = parseInt(economyclassInput.value);
+            document.getElementById('economy-quantity').innerText = economyclassCount;
+
+            const firstclassTotal = firstclassCount * 150;
+            document.getElementById('first-total').innerText = '$' + firstclassTotal;
+
+            const economyclassTotal = economyclassCount * 100;
+            document.getElementById('economy-total').innerText = '$' + economyclassTotal;
+
+            const subtotal = firstclassTotal + economyclassTotal;
+            document.getElementById('sub-total').innerText = '$' + subtotal;
+            document.getElementById('invoice-subtotal').innerText = '$' + subtotal;
+
+            const vat = Math.round(subtotal * 0.1);
+            document.getElementById('vat-charge').innerText = '$' + vat;
+            document.getElementById('invoice-vat').innerText = '$' + vat;
+
+            const grandTotal = subtotal + vat;
+            document.getElementById('grand-total').innerText = '$' + grandTotal;
+            document.getElementById('invoice-total').innerText = '$' + grandTotal;
+        }
+
+
+        function bookingReport() {
+            const mainArea = document.getElementById('main-area');
+            mainArea.style.display = "none";
+            const invoiceArea = document.getElementById('invoice-area');
+            invoiceArea.style.display = "block";
+
+            const leaveFrom = document.getElementById('leave-from').value;
+            document.getElementById('invoice-leaveFrom').innerText = leaveFrom;
+
+            const destination = document.getElementById('dest-to').value;
+            document.getElementById('invoice-destination').innerText = destination;
+
+            const departureDate = document.getElementById('departure-date').value;
+            document.getElementById('invoice-departure').innerText = departureDate;
+
+            const returnDate = document.getElementById('return-date').value;
+            document.getElementById('invoice-return').innerText = returnDate;
+        }
+
+    </script>
+</body>
+</html>

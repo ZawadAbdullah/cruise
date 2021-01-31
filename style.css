@@ -1,0 +1,176 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background:url("images/ship.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+}
+nav{
+    height: 50px;
+    width: 100%;
+    padding: 20px 0;
+}
+.container{
+    width: 1200px;
+    max-width: 75%;
+    margin: 0 auto;
+}
+nav ul{
+    display: flex;
+    justify-content: flex-start;
+    margin: 0px 6px;
+}
+nav ul li a{
+    color: black;
+    padding: 5px;
+    text-transform: uppercase;
+    text-decoration: red;
+    margin-left: 5px;
+
+}
+nav ul li a:hover, a.active{
+    background-color: red;
+    border-radius: 5px;
+    color: #fff;
+}
+.main-content{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 70px;
+    align-items: center;
+}
+.booking-content{
+    color: #fff;
+    width: 100%;
+    float: left;
+    margin-left: 40px;
+}
+.booking-content h1{
+    font-size: 70px;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 500;
+}
+.booking-form{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    float: right;
+    width: 75%;
+    margin-left: 180px;
+}
+.booking-form h3{
+    margin: 10px 0px;
+}
+.booking-form  .input-group{
+    margin: 10px 0;
+}
+.booking-form  .calculations{
+    margin: 10px 0;
+}
+.booking-form  .calculations p{
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.booking-form input{
+    width: 100%;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #F3F5FF;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+.f-class{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.inp-width{
+    min-width: 300px;
+}
+
+.plus-minus-btn .button-design{
+    color: #fff;
+    margin-top: 35px;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.plus {
+    padding: 2px;
+    margin-right: 20px;
+    }
+.minus {
+    background-clip: padding-box;
+    margin-right: 10px;
+}
+
+.minus:hover{
+    background-color: #E33741 !important;
+}
+.plus:hover{
+    background-color: #E33741 !important;
+}
+
+.booking-form .inputs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.btn-style{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    background-color:  #E33741;
+}
+.amount{
+    display: flex;
+    justify-content: space-between;
+}
+
+#invoice-area{
+    display: none;
+}
+.invoice-section{
+    background-color: whitesmoke;
+    border: 1px solid #ddd;
+    padding: 20px 10px;
+    border-radius: 5px;
+    width: 90%;
+    margin: 20px auto;
+    height: 700px;
+}
+.invoice-title{
+    margin: 10px 0 30px 0;
+}
+
+.invoice-table{
+    margin: 10px;
+    padding: 20px;
+}
+
+.cruise-details{
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    padding-left: 12%;
+    padding-top: 35px;
+    color: honeydew;
+}
